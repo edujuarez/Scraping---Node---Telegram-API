@@ -1,14 +1,14 @@
 import { Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
-/*
-require('dotenv').config(); 
-const bot = process.env.BOT_TELEGRAM;
-process.env.CHAT_ID;
-*/
-// replace the value below with the Telegram token you receive from @BotFather
-const botTelegram = (quotes) => {
-    const bot = new Telegraf('6496129805:AAEDRFJ8EVK1ENu9222_eN7xQGuZTW84brk');
-    const chatID = 933708324;
+import dotenv from 'dotenv';
+dotenv.config();
+
+const botID = process.env.BOT_ID_TELEGRAM
+const chatID = process.env.CHAT_ID_TELEGRAM
+
+//Envia mje a chatID indicado
+const botTelegram = () => {
+    const bot = new Telegraf(botID);
     const now = new Date();
     const formattedDate = now.toLocaleString();
     bot.telegram.sendMessage(chatID, 'Se detecto un cambio en la web!!! ' + quotes + formattedDate);
